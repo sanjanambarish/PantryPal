@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import { motion, AnimatePresence } from "framer-motion";
 import { scan as scanApi } from "../api/client";
@@ -475,9 +476,9 @@ export default function ScanPage() {
               >
                 Scan Another Photo
               </button>
-              <a href="/pantry" className="btn-primary text-xs px-6 py-2.5">
+              <Link to="/pantry" className="btn-primary text-xs px-6 py-2.5">
                 Explore My Pantry
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
