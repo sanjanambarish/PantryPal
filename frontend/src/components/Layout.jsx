@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 import {
   LayoutDashboard, ScanLine, Package, ChefHat,
-  ShoppingCart, BarChart3, Clock, LogOut, Menu, X, Leaf, Sparkles, ArrowUpRight
+  ShoppingCart, BarChart3, Clock, LogOut, Menu, X, Leaf, Sparkles, Database
 } from "lucide-react";
 import clsx from "clsx";
 import { FOOD_IMAGES } from "../assets/images";
@@ -17,6 +17,7 @@ const NAV = [
   { to: "/shopping",  icon: ShoppingCart,    label: "Shopping List", badge: null   },
   { to: "/analytics", icon: BarChart3,       label: "Analytics",     badge: null   },
   { to: "/timeline",  icon: Clock,           label: "Timeline",      badge: null   },
+  { to: "/couchdb",   icon: Database,        label: "CouchDB Docs",  badge: "NoSQL"},
 ];
 
 const SEASONAL_TIPS = [

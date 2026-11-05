@@ -11,6 +11,7 @@ import RecipesPage from "./pages/RecipesPage";
 import ShoppingListPage from "./pages/ShoppingListPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import TimelinePage from "./pages/TimelinePage";
+import CouchDBPage from "./pages/CouchDBPage";
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="shopping" element={<ShoppingListPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="timeline" element={<TimelinePage />} />
+          <Route path="couchdb" element={<CouchDBPage />} />
         </Route>
       </Routes>
     </AuthProvider>
