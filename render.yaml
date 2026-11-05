@@ -1,0 +1,37 @@
+services:
+  # 1. Real Apache CouchDB 3.3 Service
+  - type: web
+    name: pantrypal-couchdb
+    runtime: image
+    image:
+      url: docker.io/library/couchdb:3.3
+    envVars:
+      - key: COUCHDB_USER
+        value: admin
+      - key: COUCHDB_PASSWORD
+        value: admin
+      - key: PORT
+        value: 5984
+
+  # 2. Django Backend (Connected to CouchDB)
+  - type: web
+    name: pantrypal-backend
+    runtime: docker
+    rootDir: backend
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: COUCHDB_USER
+        value: admin
+      - key: COUCHDB_PASSWORD
+        value: admin
+      - key: COUCHDB_DB
+        value: pantrypal
+      - key: COUCHDB_URL
+        fromService:
+          type: web
+          name: pantrypal-couchdb
+          envVarKey: RENDER_EXTERNAL_URL
+
